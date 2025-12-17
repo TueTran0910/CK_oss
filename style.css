@@ -1,10 +1,14 @@
-/* Nhúng Font chữ hiện đại từ Google */
+/* 1. RESET CSS (Quan trọng: Giúp giao diện không bị vỡ) */
+* {
+    box-sizing: border-box; /* Tính cả viền vào kích thước phần tử */
+}
+
+/* 2. Cài đặt Font chữ & Màu nền */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
-    /* Màu nền Gradient tím hồng rất đẹp */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Nền Gradient tím */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -13,137 +17,111 @@ body {
     padding: 20px;
 }
 
+/* 3. Khung chứa nội dung (Container) */
 .container {
-    background: rgba(255, 255, 255, 0.95); /* Màu trắng hơi trong suốt */
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Đổ bóng sâu tạo chiều sâu */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 700px;
-    backdrop-filter: blur(10px); /* Hiệu ứng làm mờ nền sau lưng */
+    max-width: 800px; /* Độ rộng tối đa */
 }
 
-/* Phần tiêu đề */
-h1 {
-    color: #4a00e0;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 5px;
-}
+h1 { color: #4a00e0; text-align: center; margin-bottom: 5px; }
+.profile-info { text-align: center; color: #555; margin-bottom: 25px; }
 
-.profile-info {
-    text-align: center;
-    color: #555;
-    margin-bottom: 30px;
-    font-size: 0.95rem;
-}
-
-/* Form nhập liệu đẹp hơn */
+/* 4. FORM NHẬP LIỆU (Đã sửa lỗi bị co nhỏ) */
 .input-group {
-    display: flex;
-    gap: 10px;
-    background: #f0f2f5;
-    padding: 15px;
+    display: flex; /* Xếp ngang hàng */
+    gap: 15px; /* Khoảng cách giữa các ô */
+    background: #f8f9fa;
+    padding: 20px;
     border-radius: 12px;
+    border: 1px solid #e9ecef;
     margin-bottom: 30px;
-    border: 1px solid #e1e1e1;
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu màn hình điện thoại quá nhỏ */
 }
 
-input {
-    flex: 1;
+/* Ô nhập liệu sẽ tự giãn ra */
+.input-group input {
+    flex: 1; /* Tự động chiếm khoảng trống còn lại */
+    min-width: 200px; /* Đảm bảo không bao giờ bị co nhỏ hơn 200px */
     padding: 12px 15px;
-    border: 2px solid transparent;
+    border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
-    font-size: 14px;
-    transition: 0.3s;
+    font-size: 15px;
 }
 
-input:focus {
+.input-group input:focus {
     border-color: #764ba2;
-    background: white;
-    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.1);
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
 }
 
-/* Nút bấm Gradient */
-button {
+/* Nút bấm */
+.btn-add {
     background: linear-gradient(to right, #667eea, #764ba2);
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 12px 30px;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap; /* Giữ chữ trên 1 dòng */
 }
+.btn-add:hover { opacity: 0.9; transform: translateY(-1px); }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-}
-
-/* Bảng điểm chuyên nghiệp */
+/* 5. BẢNG ĐIỂM */
 table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px; /* Khoảng cách giữa các hàng */
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
 th {
     text-align: left;
-    color: #888;
-    font-size: 12px;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    letter-spacing: 1px;
-}
-
-tr {
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: 0.2s;
-}
-
-tr:hover {
-    transform: scale(1.01); /* Hiệu ứng phóng to nhẹ khi di chuột */
+    color: #666;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
 }
 
 td {
     padding: 15px;
-    border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    color: #333;
 }
 
-td:first-child { border-left: 1px solid #eee; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-td:last-child { border-right: 1px solid #eee; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+tr:hover { background-color: #f8f9fa; }
 
-/* Điểm số nổi bật */
+/* Các thành phần trang trí điểm số */
 .score-badge {
-    background: #e0f2f1;
-    color: #00695c;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
     font-weight: bold;
     font-size: 14px;
+    background: #e6fffa; color: #047857; /* Màu xanh mặc định */
 }
+.score-badge.fail { background: #fff5f5; color: #c53030; } /* Màu đỏ khi rớt */
 
-.score-bad.fail {
-    background: #ffebee;
-    color: #c62828;
-}
-
-/* Nút xóa tinh tế */
+/* Nút Xóa */
 .btn-delete {
-    color: #ff6b6b;
-    text-decoration: none;
+    color: #e53e3e;
     font-weight: 500;
+    text-decoration: none;
     padding: 6px 12px;
+    background: #fff5f5;
     border-radius: 6px;
-    background: rgba(255, 107, 107, 0.1);
-    transition: 0.3s;
+    transition: 0.2s;
 }
+.btn-delete:hover { background: #e53e3e; color: white; }
 
-.btn-delete:hover {
-    background: #ff6b6b;
-    color: white;
+/* Thông báo lỗi/thành công */
+.message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
 }
+.success { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
