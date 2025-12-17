@@ -47,15 +47,29 @@ $result = $conn->query("SELECT * FROM diem_thi ORDER BY id DESC");
         </form>
 
         <h3>Bảng điểm</h3>
-        <table border="1" cellpadding="10">
-            <tr><th>Môn</th><th>Điểm</th><th>Ngày nhập</th></tr>
-            <?php while($row = $result->fetch_assoc()): ?>
-            <tr>
-                <td><?php echo $row['mon_hoc']; ?></td>
-                <td><?php echo $row['diem_so']; ?></td>
-                <td><?php echo $row['ngay_nhap']; ?></td>
-            </tr>
-            <?php endwhile; ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Môn</th>
+                    <th>Điểm</th>
+                    <th>Ngày nhập</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><strong><?php echo $row['mon_hoc']; ?></strong></td>
+                    <td><?php echo $row['diem_so']; ?></td>
+                    <td><small><?php echo date("d/m/Y", strtotime($row['ngay_nhap'])); ?></small></td>
+                    <td>
+                        <a href="delete.php?id=<?php echo $row['id']; ?>" 
+                        class="btn-delete" 
+                        onclick="return confirm('Bạn chắc chắn muốn xóa môn này?')">Xóa</a>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
         </table>
     </div>
 </body>
