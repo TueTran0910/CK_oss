@@ -1,77 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #4f46e5; /* Màu tím xanh hiện đại */
+    --secondary-color: #ec4899; /* Màu hồng điểm nhấn */
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-color: #1f2937;
+    --border-radius: 12px;
+}
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
 }
 
 .container {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 90%;
-    max-width: 600px;
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
 }
 
-h1, h3 { color: #2d3748; margin-bottom: 20px; }
-p { color: #4a5568; margin: 5px 0; font-size: 0.95rem; }
+/* Phần giới thiệu */
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #e5e7eb;
+}
 
-hr { border: 0; border-top: 1px solid #edf2f7; margin: 20px 0; }
+.profile-section h1 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    color: var(--primary-color);
+}
 
-form { display: flex; gap: 10px; margin-bottom: 30px; }
+.profile-section p {
+    margin: 5px 0;
+    color: #6b7280;
+    font-size: 14px;
+}
 
-input {
+/* Form nhập liệu */
+.input-group {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+}
+
+.input-group input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #e2e8f0;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
     outline: none;
+    transition: 0.3s;
 }
 
-button {
-    background: #667eea;
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.btn-add {
+    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 8px;
+    font-weight: 500;
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover { background: #5a67d8; }
+.btn-add:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
+/* Bảng điểm */
+h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #374151;
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 10px;
+}
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+thead {
+    background: #f3f4f6;
 }
 
 th {
-    background: #f7fafc;
-    color: #718096;
+    padding: 15px;
     text-align: left;
-    padding: 12px;
-    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b5563;
+    font-size: 13px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 td {
-    padding: 12px;
-    border-top: 1px solid #edf2f7;
-    color: #2d3748;
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover { background-color: #f9fafb; }
+
+/* Nút hành động */
+.action-btn {
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-block;
 }
 
 .btn-delete {
-    color: #e53e3e;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: bold;
+    background-color: #fee2e2;
+    color: #ef4444;
 }
 
-.btn-delete:hover { text-decoration: underline; }
+.btn-delete:hover {
+    background-color: #fecaca;
+}
+
+/* Thông báo */
+.message {
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.success { background: #d1fae5; color: #065f46; }
+.error { background: #fee2e2; color: #991b1b; }
