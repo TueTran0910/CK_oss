@@ -13,7 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sd", $mon, $diem);
         
         if($stmt->execute()){
-            $msg = "<div class='message success'>✅ Đã thêm môn <b>$mon</b> thành công!</div>";
+            // QUAN TRỌNG: Đóng kết nối và chuyển hướng ngay lập tức
+            $stmt->close();
+            $conn->close();
+            
+            // Lệnh này ép trình duyệt tải lại trang index.php một cách "sạch sẽ"
+            header("Location: index.php"); 
+            exit();
         } else {
             $msg = "<div class='message error'>❌ Lỗi: " . $conn->error . "</div>";
         }
