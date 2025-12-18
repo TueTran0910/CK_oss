@@ -68,6 +68,7 @@ $result = $conn->query("SELECT * FROM diem_thi ORDER BY id DESC");
                     <th>Môn Học</th>
                     <th>Điểm</th>
                     <th>Thao tác</th>
+                    <th>test</th>
                 </tr>
             </thead>
             <tbody>
