@@ -50,6 +50,7 @@ $result = $conn->query("SELECT * FROM diem_thi ORDER BY id DESC");
             <p>Tên: <strong>Trần Thiên Tuệ.</strong> - MSSV: <strong>DH52201727.</strong></p>
             <p>Lớp: <strong>D22_TH10.</strong></p>
             <p>Trường: <strong>Đại Học Công Nghệ Sài Gòn (STU).</strong></p>
+            <h1>TRẦN THIÊN TUỆ - CHIỀU T5</h1>
         </div>
 
         <?php echo $msg; ?>
