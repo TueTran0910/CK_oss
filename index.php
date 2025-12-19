@@ -47,10 +47,10 @@ $result = $conn->query("SELECT * FROM diem_thi ORDER BY id DESC");
     <div class="container">
         <div class="profile-info">
             <h1>Hồ Sơ Sinh Viên.</h1>
-            <p>Tên: <strong>Trần Thiên Tuệ.</strong> - MSSV: <strong>DH52201727.</strong></p>
-            <p>Lớp: <strong>D22_TH10.</strong></p>
+            <p>Tên: <strong>Nguyễn Thị Thu Na.</strong> - MSSV: <strong>DH52201072.</strong></p>
+            <p>Lớp: <strong>D22_TH07.</strong></p>
             <p>Trường: <strong>Đại Học Công Nghệ Sài Gòn (STU).</strong></p>
-            <h1>TRẦN THIÊN TUỆ - CHIỀU T5</h1>
+            <h1>Nguyễn Thị Thu Na - CHIỀU T6</h1>
         </div>
 
         <?php echo $msg; ?>
